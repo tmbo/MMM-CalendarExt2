@@ -105,6 +105,9 @@ class Event {
     if (event.isRecurring) {
       eventDom.classList.add("recurred");
     }
+    if (event.isDeclined) {
+      eventDom.classList.add("declined");
+    }
     if (event.startHere) eventDom.classList.add("starthere");
     if (event.endHere) eventDom.classList.add("endhere");
     if (event.className) eventDom.classList.add(event.className);

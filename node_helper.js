@@ -149,6 +149,18 @@ module.exports = NodeHelper.create({
     wholeEvents.forEach((item) => {
       const ri = item.hasOwnProperty("item") ? item.item : item;
       const ev = {};
+
+      ev.isDeclined = false
+      if(calendar.email) {
+        for (j in ri.attendees) {
+          var attendee = ri.attendees[j]
+          if (attendee.getParameter("partstat") == "DECLINED" &&
+              attendee.getFirstValue() == "mailto:" + calendar.email) {
+            ev.isDeclined = true
+          }
+        }
+      }
+
       ev.calendarId = calendar.uid;
       ev.location = ri.location;
       ev.description = ri.description;

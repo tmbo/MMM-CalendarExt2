@@ -273,6 +273,10 @@
   display: none;
 }
 
+.CX2 .event.declined {
+  text-decoration: line-through;
+}
+
 .CX2 .event::after {
   content: ".";
   visibility: hidden;
